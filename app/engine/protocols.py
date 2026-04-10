@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
+from fastapi import Request
+from typing import Any
 
-async def extract(self, requests: Request):
-
-    """ This method extracts a specific signal from each HTTP request
-        It must be implemented by all sub  classes
-    """
+class BaseExtractor(ABC):
+    @abstractmethod
+    async def extract(self, request: Request) -> Any:
+        pass
